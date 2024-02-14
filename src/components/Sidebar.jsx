@@ -52,6 +52,15 @@ const menuItems = [
             },{
                 name: "Warehouse 01",
                 to: "/warehouse",
+            },{
+                name: "Warehouse 01",
+                to: "/warehouse",
+            },{
+                name: "Warehouse 01",
+                to: "/warehouse",
+            },{
+                name: "Warehouse 01",
+                to: "/warehouse",
             },
         ]
     },
