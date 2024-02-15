@@ -1,75 +1,7 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import AngleDownIcon from "./AngleDownIcon";
-import { HomeIcon, NewspaperIcon, PlayIcon, Squares2X2Icon } from '@heroicons/react/24/solid'
-import MenuItemLink from "./MenuItemLink";
 import MenuItem from "./MenuItem";
-
-const menuItems = [
-    {
-        name: "Dashboard",
-        icon: <Squares2X2Icon className="w-6 h-6" />,
-        to: "/",
-        subMenus: [
-            {
-                name: "Dashboard 01",
-                to: "/",
-            },{
-                name: "Dashboard 01",
-                to: "/",
-            },{
-                name: "Dashboard 01",
-                to: "/",
-            },
-        ]
-    },{
-        name: "Content",
-        icon: <NewspaperIcon className="w-6 h-6" />,
-        to: "/content",
-        subMenus: [
-            {
-                name: "Content 01",
-                to: "/content",
-            },{
-                name: "Content 01",
-                to: "/content",
-            },{
-                name: "Content 01",
-                to: "/content",
-            },
-        ]
-    },{
-        name: "Warehouse",
-        icon: <HomeIcon className="w-6 h-6" />,
-        to: "/",
-        subMenus: [
-            {
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },{
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },{
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },{
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },{
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },{
-                name: "Warehouse 01",
-                to: "/warehouse",
-            },
-        ]
-    },
-    {
-        name: "Videos",
-        icon: <PlayIcon className="w-6 h-6" />,
-        to: "/videos",
-    }
-]
+import { menuItems } from "../dataset";
 
 const Sidebar = ({ inactive, setInactive }) => {
     const [menuItemsState, setMenuItemsState] = useState(menuItems.map(() => false));
