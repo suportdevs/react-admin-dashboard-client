@@ -1,6 +1,16 @@
-import { BellIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid'
+import { BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { menuItems } from '../dataset';
 
 const Header = ({inactive, setInactive}) => {
+    const [active, setActive] = useState(false);
+    const [menuItemsState, setMenuItemsState] = useState(menuItems.map(() => false));
+
+    const handleExpand = (index) => {
+        const updatedMenuItemsState = menuItemsState.map((state, idx) => idx === index ? !state : false);
+        setMenuItemsState(updatedMenuItemsState);
+    };
     return(
         <div className="bg-white w-full h-16 flex items-center justify-between p-4">
             <div>
@@ -8,15 +18,39 @@ const Header = ({inactive, setInactive}) => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                 </svg>
             </div>
-            <div className="flex items-center gap-4">
-                <div className="cursor-pointer">
+            <div className="flex items-center">
+                {
+                    menuItems.map((menu, index) => (
+                        <div className="relative ">
+                            <div className="flex items-center gap-1 p-3 cursor-pointer hover:bg-gray-100" onClick={() => handleExpand(index)}>
+                                <span>{menu.icon}</span> {menu.name} {menu.subMenus && menu.subMenus.length > 0 ? <span><ChevronDownIcon className="w-4 h-4"/></span> : null}</div>
+                                {
+                                    menu.subMenus && menu.subMenus.length > 0 ? (
+                                        <div className={`absolute flex flex-col overflow-hidden right-0 top-12 -mr-12 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${menuItemsState[index] ? 'max-h-52 py-3' : 'max-h-0'}`}>
+                                            {
+                                                menu.subMenus.map((subMenu, subIndex) => (
+                                                    <Link to={subMenu.to} className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'>{subMenu.icon} {subMenu.name}</Link>
+                                                ))
+                                            }
+                                        </div>
+                                    ) : null
+                                }
+                        </div>
+                    ))
+                }
+                <div className=" p-3 cursor-pointer">
                     <BellIcon className="w-6 h-6"/>
                 </div>
-                <div className="cursor-pointer">
+                <div className=" p-3 cursor-pointer">
                     <ChatBubbleLeftRightIcon className="w-6 h-6"/>
                 </div>
-                <div className="overflow-hidden cursor-pointer">
-                    <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                <div className=" p-3 relative ">
+                    <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white cursor-pointer" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" onClick={() => setActive(!active)}/>
+                   <div className={`absolute flex flex-col overflow-hidden right-0 top-16 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${active ? 'max-h-52 py-3' : 'max-h-0'}`}>
+                        <Link to='/dashboard' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-6 h-6' /> Dashboard</Link>
+                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-6 h-6' /> Profile</Link>
+                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-6 h-6' /> Setting</Link>
+                   </div>
                 </div>
 
             </div>
