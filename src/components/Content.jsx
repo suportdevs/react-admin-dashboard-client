@@ -1,5 +1,12 @@
 import { Cog8ToothIcon, DocumentPlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
+import ReactSelect from "react-select";
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
 
 const Content = () => {
     return (
@@ -14,16 +21,10 @@ const Content = () => {
                 </div>
                 <div className="flex items-center gap-1 mt-3">
                     <div className="w-52">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-4" id="username" type="text" placeholder="Username" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 ring-blue-400" id="username" type="text" placeholder="Username" />
                     </div>
-                    <div>
-                        <select name="" id=""  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-4">
-                            <option value="">Product Type</option>
-                            <option value="">Product Type</option>
-                            <option value="">Product Type</option>
-                            <option value="">Product Type</option>
-                            <option value="">Product Type</option>
-                        </select>
+                    <div className="w-52">
+                        <ReactSelect options={options} />
                     </div>
                     <div className="flex items-center gap-1">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline focus:ring-4"  type="button">Search</button>

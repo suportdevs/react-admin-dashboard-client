@@ -13,7 +13,7 @@ const Dashboard = () => {
             <Sidebar inactive={inactive} setInactive={setInactive}/>
             <div className="flex flex-col item-center w-full">
                 <Header inactive={inactive} setInactive={setInactive}/>
-                <Breamcums>
+                <Breamcums title="Dashboard">
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
                     <Link>Dashboard </Link>
                 </Breamcums>
