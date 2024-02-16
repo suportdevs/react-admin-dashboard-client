@@ -26,7 +26,7 @@ const Header = ({inactive, setInactive}) => {
                                 <span>{menu.icon}</span> {menu.name} {menu.subMenus && menu.subMenus.length > 0 ? <span><ChevronDownIcon className="w-4 h-4"/></span> : null}</div>
                                 {
                                     menu.subMenus && menu.subMenus.length > 0 ? (
-                                        <div className={`absolute flex flex-col overflow-hidden right-0 top-12 -mr-12 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${menuItemsState[index] ? 'max-h-52 py-3' : 'max-h-0'}`}>
+                                        <div className={`absolute flex flex-col overflow-hidden right-0 top-14 -mr-12 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${menuItemsState[index] ? 'max-h-52 py-3' : 'max-h-0'}`}>
                                             {
                                                 menu.subMenus.map((subMenu, subIndex) => (
                                                     <Link to={subMenu.to} className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'>{subMenu.icon} {subMenu.name}</Link>
