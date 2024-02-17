@@ -8,7 +8,7 @@ export const menuItems = [
         to: "/",
         subMenus: [
             {
-                name: "Dashboard 01",
+                name: "Dashboard 01 Dashboard 01 Dashboard 01",
                 to: "/",
             },{
                 name: "Dashboard 01",

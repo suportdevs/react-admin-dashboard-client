@@ -21,15 +21,15 @@ const Header = ({inactive, setInactive}) => {
             <div className="flex items-center">
                 {
                     menuItems.map((menu, index) => (
-                        <div className="relative ">
+                        <div className="relative " key={index}>
                             <div className="flex items-center gap-1 p-3 cursor-pointer hover:bg-gray-100" onClick={() => handleExpand(index)}>
                                 <span>{menu.icon}</span> {menu.name} {menu.subMenus && menu.subMenus.length > 0 ? <span><ChevronDownIcon className="w-4 h-4"/></span> : null}</div>
                                 {
                                     menu.subMenus && menu.subMenus.length > 0 ? (
-                                        <div className={`absolute flex flex-col overflow-hidden right-0 top-14 -mr-12 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${menuItemsState[index] ? 'max-h-52 py-3' : 'max-h-0'}`}>
+                                        <div className={`absolute flex flex-col shadow-lg border overflow-hidden left-1/2 transform -translate-x-1/2 top-full w-max bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${menuItemsState[index] ? 'max-h-52 py-4 border' : 'max-h-0 border-0'}`}>
                                             {
                                                 menu.subMenus.map((subMenu, subIndex) => (
-                                                    <Link to={subMenu.to} className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'>{subMenu.icon} {subMenu.name}</Link>
+                                                    <Link to={subMenu.to} className='py-2 px-6 flex items-center gap-3 hover:bg-gray-100' key={subIndex}>{subMenu.icon} {subMenu.name}</Link>
                                                 ))
                                             }
                                         </div>
@@ -46,7 +46,7 @@ const Header = ({inactive, setInactive}) => {
                 </div>
                 <div className=" p-3 relative ">
                     <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white cursor-pointer" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" onClick={() => setActive(!active)}/>
-                   <div className={`absolute flex flex-col overflow-hidden right-0 top-16 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${active ? 'max-h-52 py-3' : 'max-h-0'}`}>
+                   <div className={`absolute flex flex-col  shadow-lg border overflow-hidden right-0 top-16 min-w-52 bg-white z-10 max-h-0 transition-max-height transition-padding ease-in duration-300 ${active ? 'max-h-52 py-3' : 'max-h-0'}`}>
                         <Link to='/dashboard' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-6 h-6' /> Dashboard</Link>
                         <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-6 h-6' /> Profile</Link>
                         <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-6 h-6' /> Setting</Link>
