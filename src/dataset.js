@@ -4,7 +4,7 @@ import { HomeIcon, NewspaperIcon, PlayIcon, Squares2X2Icon } from '@heroicons/re
 export const menuItems = [
     {
         name: "Dashboard",
-        icon: <Squares2X2Icon className="w-6 h-6" />,
+        icon: <Squares2X2Icon className="w-5 h-5" />,
         to: "/",
         subMenus: [
             {
@@ -20,7 +20,7 @@ export const menuItems = [
         ]
     },{
         name: "Content",
-        icon: <NewspaperIcon className="w-6 h-6" />,
+        icon: <NewspaperIcon className="w-5 h-5" />,
         to: "/content",
         subMenus: [
             {
@@ -36,7 +36,7 @@ export const menuItems = [
         ]
     },{
         name: "Warehouse",
-        icon: <HomeIcon className="w-6 h-6" />,
+        icon: <HomeIcon className="w-5 h-5" />,
         to: "/",
         subMenus: [
             {
@@ -55,14 +55,26 @@ export const menuItems = [
                 name: "Warehouse 01",
                 to: "/warehouse",
             },{
+                name: "Warehouse 5",
+                to: "/warehouse",
+            },{
                 name: "Warehouse 01",
+                to: "/warehouse",
+            },{
+                name: "Warehouse 01",
+                to: "/warehouse",
+            },{
+                name: "Warehouse 06",
+                to: "/warehouse",
+            },{
+                name: "Warehouse 07",
                 to: "/warehouse",
             },
         ]
     },
     {
         name: "Videos",
-        icon: <PlayIcon className="w-6 h-6" />,
+        icon: <PlayIcon className="w-5 h-5" />,
         to: "/videos",
     }
 ]
