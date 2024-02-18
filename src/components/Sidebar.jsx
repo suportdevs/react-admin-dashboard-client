@@ -12,10 +12,10 @@ const Sidebar = ({ inactive, setInactive }) => {
         }
     },[inactive]);
 
-    const handleExpand = (index) => {
-        const updatedMenuItemsState = menuItemsState.map((state, idx) => idx === index ? !state : false);
-        setMenuItemsState(updatedMenuItemsState);
-    };
+    // const handleExpand = (index) => {
+    //     const updatedMenuItemsState = menuItemsState.map((state, idx) => idx === index ? !state : false);
+    //     setMenuItemsState(updatedMenuItemsState);
+    // };
     
     return (
         <div className={`bg-slate-900 text-slate-300 ${inactive ? 'w-1/5' : 'w-20'} h-screen p-4 transition[weight] ease-in duration-300`}>
@@ -23,7 +23,7 @@ const Sidebar = ({ inactive, setInactive }) => {
             <div className="mt-6">
                 {
                 menuItems.map((menu, index) => (
-                    <MenuItem key={index} name={menu.name} icon={menu.icon} subMenus={menu.subMenus || []} inactive={inactive} setInactive={setInactive} expanded={menuItemsState[index]} onExpand={() => handleExpand(index)} />
+                    <MenuItem key={index} name={menu.name} icon={menu.icon} subMenus={menu.subMenus || []} inactive={inactive} setInactive={setInactive}/>
                 )
                 )}
             </div>
