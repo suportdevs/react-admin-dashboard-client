@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AngleDownIcon from "./AngleDownIcon";
 import MenuItemLink from "./MenuItemLink";
 
@@ -10,6 +10,10 @@ const MenuItem = ({ name, icon, subMenus, inactive, setInactive }) => {
         const dropdownMenu = dropdownRef.current;
         dropdownMenu.style.maxHeight = openMenu ? '0px' : `${dropdownMenu.scrollHeight}px`;
     };
+    useEffect(() => {
+        const dropdownMenu = dropdownRef.current;
+        dropdownMenu.style.maxHeight = inactive ? '0px' : `0px`;
+    }, [inactive]);
 
     return (
         <div>

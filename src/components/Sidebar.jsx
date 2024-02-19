@@ -18,7 +18,7 @@ const Sidebar = ({ inactive, setInactive }) => {
     // };
     
     return (
-        <div className={`bg-slate-900 text-slate-300 ${inactive ? 'w-1/5' : 'w-20'} h-screen p-4 transition[weight] ease-in duration-300`}>
+        <div className={`bg-slate-900 text-slate-300 ${inactive ? 'w-1/5' : 'w-20'} h-screen px-4 transition[weight] ease-in duration-300`}>
             <Logo inactive={inactive} />
             <div className="mt-6">
                 {

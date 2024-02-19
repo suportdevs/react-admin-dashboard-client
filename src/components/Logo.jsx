@@ -5,9 +5,9 @@ const Logo = ({inactive}) => {
     return (
         <div className="flex items-center gap-3">
             <div>
-                <img src={logo} alt="logo" className="w-12 h-12" />
+                <img src={logo} alt="logo" className={`w-12 h-auto ${inactive ? 'mt-1' : 'mt-0'}`} />
             </div>
-            <h2 className={`text-2xl font-bold ${inactive ? 'block' : 'hidden' }`}>Sub logo</h2>
+            <h2 className={`text-2xl font-bold overflow-hidden transition-width ease-in duration-300 ${inactive ? 'w-auto' : 'w-0'}`}>Sub logo</h2>
         </div>
     )
 }
