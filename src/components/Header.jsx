@@ -1,7 +1,8 @@
-import { BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from '@heroicons/react/24/solid'
+import { Bars3BottomLeftIcon, BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { menuItems } from '../dataset';
+import Logo from "../components/Logo";
 
 const Header = ({ inactive, setInactive }) => {
     const [active, setActive] = useState(false);
@@ -14,13 +15,14 @@ const Header = ({ inactive, setInactive }) => {
     };
 
     return (
-        <div className="bg-white w-full h-16 flex items-center justify-between p-4 border-b-[1px]  border-indigo-600">
+        <div className="bg-white w-full h-16 flex items-center lg:justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 md:bg-red-400 lg:bg-green-400 xl:bg-blue-400 2xl:bg-tomato-400">
             <div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 cursor-pointer" onClick={() => setInactive(!inactive)}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-                </svg>
+                <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer" onClick={() => setInactive(!inactive)}/>
             </div>
             <div className="flex items-center">
+                <Logo inactive={true} />
+            </div>
+            <div className="lg:flex items-center hidden sm:hidden">
                 {
                     menuItems.map((menu, index) => (
                         <div className="relative " key={index}>
