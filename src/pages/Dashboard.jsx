@@ -8,11 +8,12 @@ import Content from "../components/Content";
 
 const Dashboard = () => {
     const [inactive, setInactive] = useState(true);
+    const [offCanvas, setOffCanvas] = useState(false);
     return (
         <div className="flex item-center">
-            <Sidebar inactive={inactive} setInactive={setInactive}/>
+            <Sidebar inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
             <div className="flex flex-col item-center w-full overflow-hidden">
-                <Header inactive={inactive} setInactive={setInactive}/>
+                <Header inactive={inactive} setInactive={setInactive}  offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
                 <Breamcums title="Dashboard">
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
                     <Link>Dashboard </Link>
