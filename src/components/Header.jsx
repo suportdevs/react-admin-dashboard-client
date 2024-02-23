@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { menuItems } from '../dataset';
 import Logo from "../components/Logo";
 
-const Header = ({ inactive, setInactive }) => {
+const Header = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
     const [active, setActive] = useState(false);
     const [menuItemsState, setMenuItemsState] = useState(menuItems.map(() => false));
 
@@ -17,10 +17,11 @@ const Header = ({ inactive, setInactive }) => {
     return (
         <div className="bg-white w-full h-16 flex items-center justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 md:bg-red-400 lg:bg-green-400 xl:bg-blue-400 2xl:bg-tomato-400">
             <div>
-                <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer" onClick={() => setInactive(!inactive)}/>
+                <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer hidden lg:block" onClick={() => setInactive(!inactive)}/>
+                <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer lg:hidden" onClick={() => setOffCanvas(!offCanvas)}/>
             </div>
-            <div className="flex items-center lg:hidden">
-                <Logo inactive={true} />
+            <div className="flex items-center">
+                <Logo inactive={true} lg_device={true}   />
             </div>
             <div className="flex items-center">
                 {
@@ -43,10 +44,10 @@ const Header = ({ inactive, setInactive }) => {
                     ))
                 }
                 <div className=" p-3 cursor-pointer">
-                    <BellIcon className="w-6 h-6"/>
+                    <BellIcon className="w-5 h-5"/>
                 </div>
                 <div className=" p-3 cursor-pointer">
-                    <ChatBubbleLeftRightIcon className="w-6 h-6"/>
+                    <ChatBubbleLeftRightIcon className="w-5 h-5"/>
                 </div>
                 <div className=" p-3 relative ">
                     <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white cursor-pointer" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" onClick={() => {
@@ -54,9 +55,9 @@ const Header = ({ inactive, setInactive }) => {
                         setMenuItemsState(menuItems.map(() => false));
                     }}/>
                    <div className={`absolute flex flex-col  shadow-lg border overflow-hidden right-0 top-full bg-white z-10 transition-all ease-in-out duration-300 origin-top ${active ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
-                        <Link to='/dashboard' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-6 h-6' /> Dashboard</Link>
-                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-6 h-6' /> Profile</Link>
-                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-6 h-6' /> Setting</Link>
+                        <Link to='/dashboard' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-5 h-5' /> Dashboard</Link>
+                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-5 h-5' /> Profile</Link>
+                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-5 h-5' /> Setting</Link>
                    </div>
                 </div>
             </div>

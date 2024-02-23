@@ -35,40 +35,40 @@ export const menuItems = [
             },
         ]
     },{
-        name: "Warehouse",
+        name: "Blogs",
         icon: <HomeIcon className="w-5 h-5" />,
         to: "/",
         subMenus: [
             {
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 5",
-                to: "/warehouse",
+                name: "Blogs 5",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 01",
-                to: "/warehouse",
+                name: "Blogs 01",
+                to: "/Blogs",
             },{
-                name: "Warehouse 06",
-                to: "/warehouse",
+                name: "Blogs 06",
+                to: "/Blogs",
             },{
-                name: "Warehouse 07",
-                to: "/warehouse",
+                name: "Blogs 07",
+                to: "/Blogs",
             },
         ]
     },

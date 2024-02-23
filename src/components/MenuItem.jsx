@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import AngleDownIcon from "./AngleDownIcon";
 import MenuItemLink from "./MenuItemLink";
 
-const MenuItem = ({ name, icon, subMenus, inactive, setInactive }) => {
+const MenuItem = ({ name, icon, subMenus, inactive, setInactive, offCanvas, setOffCanvas }) => {
     const [openMenu, setOpenMenu] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -17,20 +17,20 @@ const MenuItem = ({ name, icon, subMenus, inactive, setInactive }) => {
 
     return (
         <div>
-            <div className="menu flex items-center justify-between p-3 rounded-sm cursor-pointer hover:bg-slate-800 hover:text-white" onClick={() => {
+            <div className={`menu flex items-center justify-between p-3 rounded-sm cursor-pointer hover:bg-slate-800 hover:text-white ${!inactive || offCanvas ? 'visible' : 'invisible lg:visible'}`} onClick={() => {
                 setOpenMenu(!openMenu);
                 setInactive(true);
                 toggleDropdown();
             }}>
                 <div className="flex items-center gap-3" >
                     {icon}
-                    <div className={`${!inactive ? 'lg:w-0 lg:h-0 lg:opacity-0 lg:invisible' : ''}`}>{name}</div>
+                    <div className={`${!inactive ? 'w-0 h-0 opacity-0 visible lg:invisible' : ''}`}>{name}</div>
                 </div>
                 {subMenus && subMenus.length > 0 ? <AngleDownIcon inactive={inactive} openMenu={openMenu} /> : ''}
             </div>
             <div ref={dropdownRef} className={`dropdown-menu flex flex-col overflow-hidden max-h-0 transition[max-height] ease-in duration-300`}>
                 {subMenus && subMenus.length > 0 && subMenus.map((menu, index) => (
-                    <MenuItemLink key={index} to={menu.to} name={menu.name}/>
+                    <MenuItemLink key={index} to={menu.to} name={menu.name} />
                 ))}
             </div>
         </div>
