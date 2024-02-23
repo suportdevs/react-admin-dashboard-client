@@ -2,7 +2,7 @@ import { Cog8ToothIcon, DocumentPlusIcon, TrashIcon } from "@heroicons/react/24/
 import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import Table from "./Table";
-import { printDiv } from "../utilies/print";
+import { ExportToExcel, printDiv } from "../utilies/helper";
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -21,6 +21,7 @@ const Content = () => {
                     <Link className="flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-2 rounded-md focus:ring-4 ring-yellow-500/50"><span><Cog8ToothIcon className="w-4 h-4" /></span> Reset</Link>
                     <Link className="flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-2 rounded-md focus:ring-4 ring-red-500/50"><span><TrashIcon className="w-4 h-4" /></span> Delete</Link>
                     <Link className="flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-2 rounded-md focus:ring-4 ring-red-500/50" onClick={() => printDiv('print_area')} ><span><TrashIcon className="w-4 h-4" /></span> Print</Link>
+                    <Link className="flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-2 rounded-md focus:ring-4 ring-red-500/50" onClick={() => ExportToExcel('print_area')} ><span><TrashIcon className="w-4 h-4" /></span> Export</Link>
                 </div>
                 <div className="flex flex-wrap lg:flex-nowrap items-center lg:gap-1 mt-3">
                     <div className="w-6/12 lg:w-1/2">
