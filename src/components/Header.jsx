@@ -15,17 +15,17 @@ const Header = ({ inactive, setInactive }) => {
     };
 
     return (
-        <div className="bg-white w-full h-16 flex items-center lg:justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 md:bg-red-400 lg:bg-green-400 xl:bg-blue-400 2xl:bg-tomato-400">
+        <div className="bg-white w-full h-16 flex items-center justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 md:bg-red-400 lg:bg-green-400 xl:bg-blue-400 2xl:bg-tomato-400">
             <div>
                 <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer" onClick={() => setInactive(!inactive)}/>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center lg:hidden">
                 <Logo inactive={true} />
             </div>
-            <div className="lg:flex items-center hidden sm:hidden">
+            <div className="flex items-center">
                 {
                     menuItems.map((menu, index) => (
-                        <div className="relative " key={index}>
+                        <div className="relative hidden lg:block" key={index}>
                             <div className={`flex items-center gap-1 px-3 py-4 cursor-pointer hover:bg-gray-100 ${menuItemsState[index] ? 'bg-gray-100' : ''}`} onClick={() => handleExpand(index)}>
                                 <span>{menu.icon}</span> {menu.name} {menu.subMenus && menu.subMenus.length > 0 ? <span><ChevronDownIcon className="w-4 h-4"/></span> : null}</div>
                             {

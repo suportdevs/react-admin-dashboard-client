@@ -24,7 +24,7 @@ const MenuItem = ({ name, icon, subMenus, inactive, setInactive }) => {
             }}>
                 <div className="flex items-center gap-3" >
                     {icon}
-                    <div className={`${!inactive ? 'w-0 h-0 opacity-0 invisible' : ''}`}>{name}</div>
+                    <div className={`${!inactive ? 'lg:w-0 lg:h-0 lg:opacity-0 lg:invisible' : ''}`}>{name}</div>
                 </div>
                 {subMenus && subMenus.length > 0 ? <AngleDownIcon inactive={inactive} openMenu={openMenu} /> : ''}
             </div>

@@ -9,15 +9,15 @@ import Content from "../components/Content";
 const Dashboard = () => {
     const [inactive, setInactive] = useState(true);
     return (
-        <div className="flex item-center">
-            <Sidebar inactive={inactive} setInactive={setInactive}/>
+        <div className="flex item-center relative">
+            <Sidebar inactive={inactive} setInactive={setInactive} />
             <div className="flex flex-col item-center w-full overflow-hidden">
-                <Header inactive={inactive} setInactive={setInactive}/>
+                <Header inactive={inactive} setInactive={setInactive} />
                 <Breamcums title="Dashboard">
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
                     <Link>Dashboard </Link>
                 </Breamcums>
-                <Content  />
+                <Content />
             </div>
         </div>
     )
