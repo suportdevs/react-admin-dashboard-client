@@ -1,35 +1,83 @@
 import * as XLSX from 'xlsx';
 
 export const printDiv = (divName) => {
-    // const printContents = document.getElementById(divName).innerHTML;
-    // const originalContents = document.body.innerHTML;
-    // document.body.innerHTML = printContents;
-    // window.print();
-    // document.body.innerHTML = originalContents;
-    // setTimeout(() => {
-    //     window.location.reload();
-    // }, 1000); // Reload after 1 second (adjust as needed)
-    const hiddenElement = document.createElement('div');
-    hiddenElement.style.display = 'none';
-    const pElm = document.body.appendChild(hiddenElement);
-    console.log("p " + pElm);
+    // Clone the content from the specified div
+    const contentToPrint = document.querySelector(`#${divName}`).cloneNode(true);
 
-    console.log(window.body);
+    // Apply additional styles for printing
+    applyPrintStyles(contentToPrint);
 
+    // Create a hidden iframe to contain the content
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:0;');
+    document.body.appendChild(iframe);
+    const iframeDoc = iframe.contentWindow.document;
 
-    const printContents = document.querySelector(`#${divName}`).cloneNode(true);
+    // Append the content to the iframe document
+    iframeDoc.body.appendChild(contentToPrint);
 
-    printContents.querySelectorAll('th.hip').forEach(element => element.remove());
-    printContents.querySelectorAll('td.hip').forEach(element => element.remove());
-    printContents.querySelectorAll('tr.hip').forEach(element => element.remove());
+    // Wait for iframe to load before printing
+    // iframe.onload = function() {
+        iframe.contentWindow.print();
 
-    hiddenElement.appendChild(printContents);
+        // Remove the iframe after printing
+        setTimeout(function() {
+            document.body.removeChild(iframe);
+        }, 100);
+    // };
+};
 
-    window.print();
+// Apply additional print styles
+function applyPrintStyles(contentToPrint) {
+    // Example styles for tables
+    const tables = contentToPrint.getElementsByTagName('table');
+    for (let i = 0; i < tables.length; i++) {
+        const table = tables[i];
+        
+        // hide element to table class (hip)
+        const hElms = table.querySelectorAll('.hip');
+        for (let h = 0; h < hElms.length; h++) {
+            hElms[h].style.display = 'none';
+        }
+        // show hidden elements of class (sip)
+        const sElms = table.querySelectorAll('.sip');
+        for (let s = 0; s < sElms.length; s++) {
+            sElms[s].style.display = 'block';
+        }
+        // Apply styles to table headers (th)
+        const ths = table.getElementsByTagName('th');
+        for (let j = 0; j < ths.length; j++) {
+            ths[j].style.border = '1px solid #e5e7eb';
+            ths[j].style.backgroundColor = '#fde047'; // Example background color
+            ths[j].style.padding = '5px'; // Example padding
+        }
+        
+        // Apply styles to table data cells (td)
+        const tds = table.getElementsByTagName('td');
+        for (let j = 0; j < tds.length; j++) {
+            tds[j].style.border = '1px solid #e5e7eb';
+        }
+        
+        // Apply styles to table rows (tr)
+        // const trs = table.getElementsByTagName('tr');
+        // for (let j = 0; j < trs.length; j++) {
+        //     trs[j].style.backgroundColor = '#f9f9f9'; // Example background color
+        // }
 
-    // Remove the hidden element from the DOM
-    // document.body.removeChild(hiddenElement);
+        // Apply general table styles
+        table.style.width = '100%';
+        table.style.borderCollapse = 'collapse';
+        table.style.border = '1px solid #e5e7eb';
+    }
+
+    // Example styles for headings
+    const headings = contentToPrint.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    for (let i = 0; i < headings.length; i++) {
+        headings[i].style.backgroundColor = '#f2f2f2'; // Example background color
+        headings[i].style.padding = '5px'; // Example padding
+    }
 }
+
 
 export const ExportToExcel = (fileName, fn, dl) => {
     // Create a hidden element to hold the table content for export

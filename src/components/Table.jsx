@@ -7,6 +7,8 @@ export default function Table() {
                         <th className="py-1">Name</th>
                         <th className="py-1">Email</th>
                         <th className="py-1 hip">Address</th>
+                        <th className="py-1 hip">Actions</th>
+                        <th className="py-1 hidden sip">how</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -14,36 +16,43 @@ export default function Table() {
                         <td className="p-1 hip">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
                         <td className="p-1">Mamun</td>
+                        <td className="p-1 hip"><a href="">edit</a></td>
                     </tr>
                     <tr className="divide-x divide-gray-200">
                         <td className="p-1">Mamun</td>

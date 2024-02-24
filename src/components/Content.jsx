@@ -13,7 +13,7 @@ const options = [
 const Content = () => {
     return (
         <>
-        <div className="flex flex-col mt-4 mx-4 rounded-md lg:h-[83vh] ">
+        <div className="flex flex-col mt-4 mx-4 rounded-md lg:h-[83vh] " id="content">
             <div className="bg-white flex flex-col py-4 p-2 hip">
                 <div className="flex flex-wrap items-center gap-2 justify-center">
                     <Link className="flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white px-2 rounded-md focus:ring-4 ring-green-500/50"><span><DocumentPlusIcon className="w-4 h-4" /></span> New</Link>
