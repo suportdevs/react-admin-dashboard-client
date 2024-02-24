@@ -1,14 +1,34 @@
 import * as XLSX from 'xlsx';
 
 export const printDiv = (divName) => {
-    const printContents = document.getElementById(divName).innerHTML;
-    const originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
+    // const printContents = document.getElementById(divName).innerHTML;
+    // const originalContents = document.body.innerHTML;
+    // document.body.innerHTML = printContents;
+    // window.print();
+    // document.body.innerHTML = originalContents;
+    // setTimeout(() => {
+    //     window.location.reload();
+    // }, 1000); // Reload after 1 second (adjust as needed)
+    const hiddenElement = document.createElement('div');
+    hiddenElement.style.display = 'none';
+    const pElm = document.body.appendChild(hiddenElement);
+    console.log("p " + pElm);
+
+    console.log(window.body);
+
+
+    const printContents = document.querySelector(`#${divName}`).cloneNode(true);
+
+    printContents.querySelectorAll('th.hip').forEach(element => element.remove());
+    printContents.querySelectorAll('td.hip').forEach(element => element.remove());
+    printContents.querySelectorAll('tr.hip').forEach(element => element.remove());
+
+    hiddenElement.appendChild(printContents);
+
     window.print();
-    document.body.innerHTML = originalContents;
-    setTimeout(() => {
-        window.location.reload();
-    }, 1000); // Reload after 1 second (adjust as needed)
+
+    // Remove the hidden element from the DOM
+    // document.body.removeChild(hiddenElement);
 }
 
 export const ExportToExcel = (fileName, fn, dl) => {
