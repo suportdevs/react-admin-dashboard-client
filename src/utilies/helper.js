@@ -30,7 +30,16 @@ export const printDiv = (divName) => {
 // Apply additional print styles
 function applyPrintStyles(contentToPrint) {
     // Example styles for tables
-    const tables = contentToPrint.getElementsByTagName('table');
+    const printHeader = contentToPrint.querySelectorAll('table.print_header');
+
+    for (let ph = 0; ph < printHeader.length; ph++) {
+        const phTable = printHeader[ph];
+        phTable.style.width = '100%';
+        phTable.style.borderCollapse = 'collapse';
+        phTable.style.marginBottom = '10px';
+        // phTable.style.border = '1px solid #e5e7eb';
+    }
+    const tables = contentToPrint.querySelectorAll('table.table');
     for (let i = 0; i < tables.length; i++) {
         const table = tables[i];
         
@@ -45,11 +54,14 @@ function applyPrintStyles(contentToPrint) {
             sElms[s].style.display = 'block';
         }
         // Apply styles to table headers (th)
-        const ths = table.getElementsByTagName('th');
-        for (let j = 0; j < ths.length; j++) {
-            ths[j].style.border = '1px solid #e5e7eb';
-            ths[j].style.backgroundColor = '#fde047'; // Example background color
-            ths[j].style.padding = '5px'; // Example padding
+        const theads = table.getElementsByTagName('thead');
+        for (let i = 0; i < theads.length; i++) {
+            const ths = theads[i].getElementsByTagName('th');
+            for (let j = 0; j < ths.length; j++) {
+                ths[j].style.border = '1px solid #e5e7eb';
+                ths[j].style.backgroundColor = '#fde047'; // Example background color
+                ths[j].style.padding = '5px'; // Example padding
+            }
         }
         
         // Apply styles to table data cells (td)
@@ -71,11 +83,11 @@ function applyPrintStyles(contentToPrint) {
     }
 
     // Example styles for headings
-    const headings = contentToPrint.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    for (let i = 0; i < headings.length; i++) {
-        headings[i].style.backgroundColor = '#f2f2f2'; // Example background color
-        headings[i].style.padding = '5px'; // Example padding
-    }
+    // const headings = contentToPrint.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    // for (let i = 0; i < headings.length; i++) {
+    //     headings[i].style.backgroundColor = '#f2f2f2'; // Example background color
+    //     headings[i].style.padding = '5px'; // Example padding
+    // }
 }
 
 
@@ -87,7 +99,6 @@ export const ExportToExcel = (fileName, fn, dl) => {
 
     // Clone the table to preserve the original content
     const tableToExport = document.querySelector('.tbl_exporttable_to_xls').cloneNode(true);
-    
     // Remove unwanted elements from the cloned table
     tableToExport.querySelectorAll('td.hip').forEach(element => element.remove());
     tableToExport.querySelectorAll('th.hip').forEach(element => element.remove());
