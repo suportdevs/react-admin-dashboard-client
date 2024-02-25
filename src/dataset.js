@@ -1,5 +1,5 @@
 
-import { HomeIcon, NewspaperIcon, PlayIcon, Squares2X2Icon } from '@heroicons/react/24/solid'
+import { HomeIcon, NewspaperIcon, PlayIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 
 export const menuItems = [
     {

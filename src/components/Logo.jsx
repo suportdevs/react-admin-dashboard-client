@@ -4,7 +4,7 @@ import logo from "../images/logo.png"
 const Logo = ({inactive, offCanvas, setOffCanvas, lg_device}) => {
 
     return (
-        <div className="flex items-center justify-between gap-3 px-4 lg:px-0">
+        <div className="flex items-center justify-between lg:justify-start gap-3 px-4 lg:px-0">
             <div className={`${lg_device ? 'lg:hidden' : ''}`}>
                 <img src={logo} alt="logo" className={`w-12 h-auto ${inactive ? 'mt-1' : 'mt-0'}`} />
             </div>

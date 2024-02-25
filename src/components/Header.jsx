@@ -1,4 +1,4 @@
-import { Bars3BottomLeftIcon, BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from '@heroicons/react/24/solid'
+import { Bars3BottomLeftIcon, BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { menuItems } from '../dataset';
