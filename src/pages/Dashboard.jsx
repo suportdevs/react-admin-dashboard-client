@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import Breamcums from "../components/Breamcums";
 import Content from "../components/Content";
+import Modal from "../components/Modal";
 
 const Dashboard = () => {
     const [inactive, setInactive] = useState(true);
@@ -19,6 +20,7 @@ const Dashboard = () => {
                     <Link>Dashboard </Link>
                 </Breamcums>
                 <Content />
+                <Modal />
             </div>
         </div>
     )
