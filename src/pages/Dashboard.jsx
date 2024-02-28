@@ -10,6 +10,7 @@ import Modal from "../components/Modal";
 const Dashboard = () => {
     const [inactive, setInactive] = useState(true);
     const [offCanvas, setOffCanvas] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
     return (
         <div className="flex item-center">
             <Sidebar inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
@@ -19,8 +20,10 @@ const Dashboard = () => {
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
                     <Link>Dashboard </Link>
                 </Breamcums>
-                <Content />
-                <Modal />
+                <Content setModalOpen={setModalOpen} />
+                <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
+                    
+                </Modal>
             </div>
         </div>
     )
