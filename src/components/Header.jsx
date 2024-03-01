@@ -31,7 +31,7 @@ const Header = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
                                 <span>{menu.icon}</span> {menu.name} {menu.subMenus && menu.subMenus.length > 0 ? <span><ChevronDownIcon className="w-4 h-4"/></span> : null}</div>
                             {
                                 menu.subMenus && menu.subMenus.length > 0 ? (
-                                    <div className={`absolute flex flex-col shadow-lg border overflow-hidden left-1/2 transform -translate-x-1/2 top-full mt-1 w-max bg-white z-10 transition-all ease-in-out duration-300 origin-top ${menuItemsState[index] ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
+                                    <div className={`absolute flex flex-col shadow-lg border overflow-hidden left-1/2 transform -translate-x-1/2 top-full mt-1 w-max bg-white z-10 transition-all ease-in-out duration-300 origin-top ${menuItemsState[index] ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`} onClick={() => handleExpand(index)}>
                                         {
                                             menu.subMenus.map((subMenu, subIndex) => (
                                                 <Link to={subMenu.to} className='py-2 px-6 flex items-center gap-3 hover:bg-gray-100' key={subIndex}>{subMenu.icon} {subMenu.name}</Link>
@@ -55,9 +55,9 @@ const Header = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
                         setMenuItemsState(menuItems.map(() => false));
                     }}/>
                    <div className={`absolute flex flex-col  shadow-lg border overflow-hidden right-0 top-full bg-white z-10 transition-all ease-in-out duration-300 origin-top ${active ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
-                        <Link to='/dashboard' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-5 h-5' /> Dashboard</Link>
-                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-5 h-5' /> Profile</Link>
-                        <Link to='/profile' className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-5 h-5' /> Setting</Link>
+                        <Link to='/dashboard' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-5 h-5' /> Dashboard</Link>
+                        <Link to='/profile' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-5 h-5' /> Profile</Link>
+                        <Link to='/profile' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-5 h-5' /> Setting</Link>
                    </div>
                 </div>
             </div>

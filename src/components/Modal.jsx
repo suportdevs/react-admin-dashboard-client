@@ -1,9 +1,25 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const Modal = ({modalOpen, setModalOpen, modalSize}) => {
+const Modal = ({id= 'modal', modalOpen, setModalOpen, modalSize}) => {
+    let modalWeight = 'lg:w-4/12';
+    if(modalSize === 'sm'){
+        modalWeight = 'lg:w-4/12';
+    }else if(modalSize === 'md'){
+        modalWeight = 'lg:w-6/12';
+    }else if(modalSize === 'lg'){
+        modalWeight = 'lg:w-8/12';
+    }else if(modalSize === 'xl'){
+        modalWeight = 'lg:w-10/12';
+    }
+    const handleModalClose = (e) => {
+        if(e.target.id === id){
+            setModalOpen(false);
+        }
+    }
+
     return (
-        <div className={`fixed inset-0 flex justify-center items-center w-screen h-screen backdrop-blur-sm transition ${modalOpen ? 'visible' : 'invisible'}`}>
-            <div className={`flex flex-col gap-2 rounded border shadow-2xl bg-white overflow-hidden transition-all ${modalOpen ? 'scale-100 opacity-1' : 'scale-125 opacity-0'} w-full m-5` }>
+        <div onClick={handleModalClose}  id={id} className={`fixed inset-0 flex justify-center items-center w-screen h-screen backdrop-blur-sm transition ${modalOpen ? 'visible' : 'invisible'}`}>
+            <div className={`flex flex-col gap-2  w-full m-5 rounded border shadow-2xl bg-white overflow-hidden transition-all ${modalWeight} ${modalOpen ? 'scale-100 opacity-1' : 'scale-125 opacity-0'}` }>
                 <div className="bg-blue-800 text-white px-4 p-2 flex items-center justify-between">
                     <h2 className="text-2xl font-bold">Are you sure delete this record!</h2>
                     <XMarkIcon onClick={() => setModalOpen(false)} className="w-6 h-6 cursor-pointer" />
