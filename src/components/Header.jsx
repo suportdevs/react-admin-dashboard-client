@@ -1,4 +1,4 @@
-import { Bars3BottomLeftIcon, BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, UserIcon } from "@heroicons/react/24/outline";
+import { Bars3BottomLeftIcon, BellIcon, ChatBubbleLeftRightIcon, ChevronDownIcon, Cog8ToothIcon, HomeIcon, LockOpenIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { menuItems } from '../dataset';
@@ -58,6 +58,7 @@ const Header = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
                         <Link to='/dashboard' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><HomeIcon className='w-5 h-5' /> Dashboard</Link>
                         <Link to='/profile' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><UserIcon className='w-5 h-5' /> Profile</Link>
                         <Link to='/profile' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><Cog8ToothIcon className='w-5 h-5' /> Setting</Link>
+                        <Link to='/login' onClick={() => setActive(!active)}className='py-2 px-4 flex items-center gap-3 hover:bg-gray-100'><LockOpenIcon className='w-5 h-5' /> Log In</Link>
                    </div>
                 </div>
             </div>
