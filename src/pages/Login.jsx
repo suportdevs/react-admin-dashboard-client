@@ -3,13 +3,13 @@ import logo from "../images/logo.png"
 
 const Login = () => {
     return (
-        <div className="flex flex-col justify-center h-screen">
+        <div className="flex flex-col justify-center h-screen px-6 py-12 lg:px-8">
                 <div className="mx-auto">
                     <img src={logo} alt="Logo" className="mx-auto h-22 w-auto" />
                     <h1 className="mt-10 text-2xl font-extrabold">Sign in to your account</h1>
                 </div>
-                <div className="mt-10 mx-auto w-96">
-                    <form className="space-y-6">
+                <div className="mt-10 mx-auto w-full lg:w-96">
+                    <form className="space-y-4 lg:space-y-6">
                         <div>
                             <label htmlFor="email">Email address</label>
                             <div className="mt-2">

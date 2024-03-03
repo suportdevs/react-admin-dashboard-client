@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import AngleDownIcon from "./AngleDownIcon";
 import MenuItemLink from "./MenuItemLink";
 
-const MenuItem = ({ name, icon, subMenus, inactive, setInactive, offCanvas, setOffCanvas }) => {
+const MenuItem = ({ name, icon, subMenus, inactive, setInactive, offCanvas }) => {
     const [openMenu, setOpenMenu] = useState(false);
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         const dropdownMenu = dropdownRef.current;
-        dropdownMenu.style.maxHeight = openMenu ? '0px' : `${dropdownMenu.scrollHeight}px`;
+        dropdownMenu.style.maxHeight = dropdownMenu.style.maxHeight === '0px' ? `${dropdownMenu.scrollHeight}px` : '0px';
     };
     useEffect(() => {
         const dropdownMenu = dropdownRef.current;
@@ -28,7 +28,7 @@ const MenuItem = ({ name, icon, subMenus, inactive, setInactive, offCanvas, setO
                 </div>
                 {subMenus && subMenus.length > 0 ? <AngleDownIcon inactive={inactive} openMenu={openMenu} /> : ''}
             </div>
-            <div ref={dropdownRef} className={`dropdown-menu flex flex-col overflow-hidden max-h-0 transition[max-height] ease-in duration-300`}>
+            <div ref={dropdownRef} className={`dropdown-menu flex flex-col relative overflow-hidden max-h-0 transition[max-height] ease-in duration-300 after:content-[''] after:absolute after:h-full after:w-0.5 after:left-8 after:top-0 after:bg-gray-400 hover:after:bg-white after:left-5`}>
                 {subMenus && subMenus.length > 0 && subMenus.map((menu, index) => (
                     <MenuItemLink key={index} to={menu.to} name={menu.name} />
                 ))}

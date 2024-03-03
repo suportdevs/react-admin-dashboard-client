@@ -46,7 +46,7 @@ const Content = ({setModalOpen}) => {
                 </div>
             </div>
 
-            <div className="bg-white flex flex-col mt-2 h-[100vh] overflow-y-auto" id="print_area">
+            <div className=" bg-white flex flex-col mt-2 h-[100vh] overflow-y-auto" id="print_area">
                 <Table />
             </div>
         </div>
