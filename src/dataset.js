@@ -5,19 +5,7 @@ export const menuItems = [
     {
         name: "Dashboard",
         icon: <Squares2X2Icon className="w-5 h-5" />,
-        to: "/",
-        subMenus: [
-            {
-                name: "Dashboard 01 Dashboard 01 Dashboard 01",
-                to: "/",
-            },{
-                name: "Dashboard 01",
-                to: "/",
-            },{
-                name: "Dashboard 01",
-                to: "/",
-            },
-        ]
+        to: "/dashboard",
     },{
         name: "Orders",
         icon: <ShoppingCartIcon className="w-5 h-5" />,

@@ -18,7 +18,7 @@ const Sidebar = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
             <div className="mt-6">
                 {
                     menuItems.map((menu, index) => (
-                        <MenuItem key={index} name={menu.name} icon={menu.icon} subMenus={menu.subMenus || []} inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas} />
+                        <MenuItem key={index} to={menu.to} name={menu.name} icon={menu.icon} subMenus={menu.subMenus || []} inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas} />
                     )
                 )}
             </div>
