@@ -76,6 +76,7 @@ const Dashboard = () => {
                             <Charts type='area' />
                         </div>
                         <div className="flex-1">
+                            <h2 className="text-2xl mb-3 font-bold">Sales Summary</h2>
                             <Charts type='pie' />
                         </div>
                     </div>

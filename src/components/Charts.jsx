@@ -53,7 +53,7 @@ const Charts = ({type, childreen}) => {
             <ResponsiveContainer width="100%" aspect={4/1}>
             <BarChart width={10} height={40} data={data}>
                 <Bar dataKey="uv" fill="#e3e3e3" />
-                <Bar dataKey="pv" fill="#ff6205"  />
+                <Bar dataKey="pv" fill="#ff6205"   width={1}/>
             </BarChart>
         </ResponsiveContainer>
         
@@ -63,7 +63,7 @@ const Charts = ({type, childreen}) => {
         return (    
             <ResponsiveContainer width="100%" aspect={4/1}>
                 <LineChart data={data} >
-                <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+                    <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
                     <Line type="monotone" dataKey='uv' stroke="#8884d8" />
                     <Tooltip />
                 </LineChart>
@@ -75,7 +75,7 @@ const Charts = ({type, childreen}) => {
         return (
             <ResponsiveContainer width="100%" aspect={4/1}>
                 <AreaChart width={1000} height={250} data={data}
-                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
                 <defs>
                     <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
