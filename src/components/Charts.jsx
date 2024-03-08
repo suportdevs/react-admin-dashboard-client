@@ -1,70 +1,78 @@
 
-import { ResponsiveContainer, CartesianGrid, Tooltip, AreaChart, Area, BarChart, Bar, Line, LineChart, PieChart, Pie, Cell } from 'recharts';
+import { ResponsiveContainer, CartesianGrid, Tooltip, AreaChart, Area, BarChart, Bar, Line, LineChart, PieChart, Pie, Cell, XAxis, YAxis } from 'recharts';
 
 const data = [
   {
-    name: 'Page A',
+    name: 'Jan',
     uv: 4000,
     pv: 2400,
     amt: 2400,
+    value: 2400,
   },
   {
-    name: 'Page B',
+    name: 'Feb',
     uv: 3000,
     pv: 1398,
     amt: 2210,
+    value: 2210,
   },
   {
-    name: 'Page C',
+    name: 'Mar',
     uv: 2000,
     pv: 9800,
     amt: 2290,
+    value: 2290,
   },
   {
-    name: 'Page D',
+    name: 'Apr',
     uv: 2780,
     pv: 3908,
     amt: 2000,
+    value: 2000,
   },
   {
-    name: 'Page E',
+    name: 'May',
     uv: 1890,
     pv: 4800,
     amt: 2181,
+    value: 2181,
   },
   {
-    name: 'Page F',
+    name: 'Jun',
     uv: 2390,
     pv: 3800,
     amt: 2500,
+    value: 2500,
   },
   {
-    name: 'Page G',
+    name: 'Jul',
     uv: 3490,
     pv: 4300,
     amt: 2100,
   },
 ];
 
-const Charts = ({type, childreen}) => {
+const Charts = ({type, grid, x, y, width, height, aspect, childreen}) => {
 
     if(type === "bar"){
         return (
-            <ResponsiveContainer width="100%" aspect={4/1}>
+            <ResponsiveContainer width={width ?? '100%'} aspect={aspect ?? 4/1}>
             <BarChart width={10} height={40} data={data}>
-                <Bar dataKey="uv" fill="#e3e3e3" />
-                <Bar dataKey="pv" fill="#ff6205"   width={1}/>
+                <Bar dataKey="uv" fill="#e3e3e3" barSize={5} radius={8}/>
+                <Bar dataKey="pv" fill="#ff6205" barSize={5} radius={8}/>
             </BarChart>
         </ResponsiveContainer>
         
         );
     }
     if(type === "line"){
-        return (    
-            <ResponsiveContainer width="100%" aspect={4/1}>
+        return (
+            <ResponsiveContainer width={width ?? '100%'} aspect={aspect ?? 4/1}>
                 <LineChart data={data} >
-                    <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+                    {grid && <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>}
                     <Line type="monotone" dataKey='uv' stroke="#8884d8" />
+                    {x && <XAxis dataKey="name" />}
+                    {y && <YAxis />}
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>
@@ -73,18 +81,20 @@ const Charts = ({type, childreen}) => {
 
     if(type === "area"){
         return (
-            <ResponsiveContainer width="100%" aspect={4/1}>
-                <AreaChart width={1000} height={250} data={data}
+            <ResponsiveContainer width={width ?? '100%'} aspect={aspect ?? 4/1}>
+                <AreaChart width={500} data={data}
                 margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
-                <defs>
-                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-                    </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                    <defs>
+                        <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+                        </linearGradient>
+                    </defs>
+                    {grid && <CartesianGrid strokeDasharray="3 3" />}
+                    {x && <XAxis dataKey="name" />}
+                    {y && <YAxis />}
+                    <Tooltip />
+                    <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
                 </AreaChart>
             </ResponsiveContainer>
         );
@@ -92,37 +102,37 @@ const Charts = ({type, childreen}) => {
     if(type === "pie"){
         const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
         return (
-                <ResponsiveContainer width="100%" aspect={4/1}>
+                <ResponsiveContainer width={width ?? '100%'} aspect={aspect ?? 4/1}>
                     <PieChart width={800} height={400} >
                         <Pie
-                        data={data}
-                        cx={120}
-                        cy={200}
-                        innerRadius={60}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        paddingAngle={5}
-                        dataKey="value"
+                            data={data}
+                            cx={120}
+                            cy={200}
+                            innerRadius={60}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={5}
+                            dataKey="value"
                         >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
                         </Pie>
                         <Pie
-                        data={data}
-                        cx={420}
-                        cy={200}
-                        startAngle={180}
-                        endAngle={0}
-                        innerRadius={60}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        paddingAngle={5}
-                        dataKey="value"
+                            data={data}
+                            cx={420}
+                            cy={200}
+                            startAngle={180}
+                            endAngle={0}
+                            innerRadius={60}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={5}
+                            dataKey="value"
                         >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
                         </Pie>
                     </PieChart>
             </ResponsiveContainer>

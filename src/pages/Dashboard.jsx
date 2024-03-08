@@ -6,6 +6,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import Breamcums from "../components/Breamcums";
 import { ArrowTrendingUpIcon, ShoppingCartIcon, TruckIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Charts from "../components/Charts";
+import CustomPieChart from "../components/PieChart";
 
 const Dashboard = () => {
     const [inactive, setInactive] = useState(true);
@@ -13,7 +14,7 @@ const Dashboard = () => {
     return (
         <div className="flex item-center">
             <Sidebar inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
-            <div className="flex flex-col item-center w-full overflow-hidden">
+            <div className={`flex flex-col item-center w-full overflow-hidden transition-all duration-300 lg:ml-[20%] ${inactive ? '' : 'lg:ml-[5rem]'}`}>
                 <Header inactive={inactive} setInactive={setInactive}  offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
                 <Breamcums title="Dashboard">
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
@@ -30,7 +31,7 @@ const Dashboard = () => {
                                 </span>
                             </div>
                             <div className="h-auto w-full">
-                                <Charts type='line' />
+                                <Charts type='line' grid={true} />
                             </div>
                         </div>
                         <div className="flex-1 flex flex-col bg-white rounded-md border p-5">
@@ -70,14 +71,20 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex mt-4">
-                        <div className="flex-1 bg-white rounded border p-5">
-                            <h2 className="text-2xl mb-3 font-bold">Sales Summary</h2>
-                            <Charts type='area' />
+                    <div className="flex mt-4 gap-4">
+                        <div className="flex-8 w-8/12 bg-white rounded border p-5 ">
+                            <div className="flex items-center gap-4 mb-4">
+                                <TruckIcon className="w-10 h-10" />
+                                <h2 className="text-2xl font-bold">Sales Summary</h2>
+                            </div>
+                            <Charts type='area' grid={true} x={true} y={true} aspect={4/2} />
                         </div>
-                        <div className="flex-1">
-                            <h2 className="text-2xl mb-3 font-bold">Sales Summary</h2>
-                            <Charts type='pie' />
+                        <div className="flex-4 flex-col w-4/12 bg-white rounded border p-5">
+                            <div className="flex items-center gap-4 mb-4">
+                                <ShoppingCartIcon className="w-10 h-10" />
+                                <h2 className="text-2xl font-bold">Sales Summary</h2>
+                            </div>
+                            <CustomPieChart aspect={4/3} />
                         </div>
                     </div>
                 </div>

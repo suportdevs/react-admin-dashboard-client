@@ -13,7 +13,7 @@ const Sidebar = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
     }, [inactive]);
 
     return (
-        <div className={`${offCanvas ? 'fixed top-0 left-0 z-20 w-10/12' : 'w-0'} lg:relative bg-slate-900 text-slate-300 ${inactive ? 'w-0 lg:w-1/5' : 'w-1/2 lg:w-20'} h-screen lg:px-4 transition[weight] ease-in duration-300`}>
+        <div className={`${offCanvas ? 'fixed top-0 left-0 z-20 w-10/12' : 'w-0'} lg:fixed bg-slate-900 text-slate-300 ${inactive ? 'w-0 lg:w-1/5' : 'w-1/2 lg:w-20'} h-screen lg:px-4 transition[weight] ease-in duration-300`}>
             <Logo inactive={inactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas} />
             <div className="mt-6">
                 {
