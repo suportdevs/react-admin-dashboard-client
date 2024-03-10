@@ -14,7 +14,7 @@ const Dashboard = () => {
     return (
         <div className="flex item-center">
             <Sidebar inactive={inactive} setInactive={setInactive} offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
-            <div className={`flex flex-col item-center w-full overflow-hidden transition-all duration-300 lg:ml-[20%] ${inactive ? '' : 'lg:ml-[5rem]'}`}>
+            <div className={`flex flex-col item-center w-full overflow-hidden transition-[margin] duration-300 lg:ml-[20%] ${inactive ? '' : 'lg:ml-[5rem]'}`}>
                 <Header inactive={inactive} setInactive={setInactive}  offCanvas={offCanvas} setOffCanvas={setOffCanvas}/>
                 <Breamcums title="Dashboard">
                     <Link className="flex items-center">Home <span><ChevronRightIcon className="w-4 h-4" /></span></Link>
@@ -74,17 +74,18 @@ const Dashboard = () => {
                     <div className="flex mt-4 gap-4">
                         <div className="flex-8 w-8/12 bg-white rounded border p-5 ">
                             <div className="flex items-center gap-4 mb-4">
-                                <TruckIcon className="w-10 h-10" />
-                                <h2 className="text-2xl font-bold">Sales Summary</h2>
+                                <h2 className="text-2xl font-bold">Revenue Updates</h2>
                             </div>
                             <Charts type='area' grid={true} x={true} y={true} aspect={4/2} />
                         </div>
-                        <div className="flex-4 flex-col w-4/12 bg-white rounded border p-5">
-                            <div className="flex items-center gap-4 mb-4">
-                                <ShoppingCartIcon className="w-10 h-10" />
-                                <h2 className="text-2xl font-bold">Sales Summary</h2>
+                        <div className="flex-4 flex-col w-4/12 ">
+                            <div className="flex items-center gap-4 mb-4 bg-white rounded border p-5">
+                                <h2 className="text-2xl font-bold">Monthly Earnings</h2>
                             </div>
                             <CustomPieChart aspect={4/3} />
+                            <div className="bg-white rounded border p-5">
+                            <Charts type='area'  aspect={4/1} />
+                            </div>
                         </div>
                     </div>
                 </div>
