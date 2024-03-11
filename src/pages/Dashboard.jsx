@@ -82,7 +82,9 @@ const Dashboard = () => {
                             <div className="flex items-center gap-4 mb-4 bg-white rounded border p-5">
                                 <h2 className="text-2xl font-bold">Monthly Earnings</h2>
                             </div>
-                            <CustomPieChart aspect={4/3} />
+                            <div className="bg-white rounded border p-5">
+                            <CustomPieChart aspect={4/1} />
+                            </div>
                             <div className="bg-white rounded border p-5">
                             <Charts type='area'  aspect={4/1} />
                             </div>

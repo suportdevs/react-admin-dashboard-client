@@ -31,14 +31,14 @@ const Bullet = ({ backgroundColor, size }) => {
 const CustomizedLegend = (props) => {
   const { payload } = props;
   return (
-    <ul className="LegendList flex items-center">
+    <ul className="LegendList">
       {payload.map((entry, index) => (
         <li key={`item-${index}`}>
           <div className="BulletLabel">
             <Bullet backgroundColor={entry.payload.fill} size="10px" />
             <div className="BulletLabelText">{entry.value}</div>
           </div>
-          <div >{entry.payload.value}</div>
+          <div style={{ marginLeft: "20px" }}>{entry.payload.value}</div>
         </li>
       ))}
     </ul>
@@ -79,7 +79,7 @@ const CustomLabel = ({ viewBox, labelText, value }) => {
 
 export default function CustomPieChart() {
   return (
-    <div style={{ width: "100%", height: 'auto' }}>
+    <div style={{ width: "100%", height: 220 }}>
       <ResponsiveContainer>
         <PieChart>
           <Pie
@@ -101,7 +101,7 @@ export default function CustomPieChart() {
               position="center"
             />
           </Pie>
-          <Legend content={<CustomizedLegend />} />
+          {/* <Legend content={<CustomizedLegend />} /> */}
         </PieChart>
       </ResponsiveContainer>
     </div>
