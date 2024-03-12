@@ -34,11 +34,11 @@ const CustomizedLegend = (props) => {
     <ul className="LegendList">
       {payload.map((entry, index) => (
         <li key={`item-${index}`}>
-          <div className="BulletLabel">
+          <div className="BulletLabel  flex items-center gap-2">
             <Bullet backgroundColor={entry.payload.fill} size="10px" />
             <div className="BulletLabelText">{entry.value}</div>
-          </div>
           <div style={{ marginLeft: "20px" }}>{entry.payload.value}</div>
+          </div>
         </li>
       ))}
     </ul>
@@ -77,18 +77,17 @@ const CustomLabel = ({ viewBox, labelText, value }) => {
   );
 };
 
-export default function CustomPieChart() {
+export default function PieCharts({width, aspect}) {
   return (
-    <div style={{ width: "100%", height: 220 }}>
-      <ResponsiveContainer>
-        <PieChart>
+      <ResponsiveContainer  width={width ?? '100%'} aspect={aspect ?? 4/1}>
+        <PieChart style={{width: width ?? '100%'}} className="flex justify-between">
           <Pie
             data={data01}
             dataKey="value"
-            cx={200}
-            cy={100}
-            innerRadius={80}
-            outerRadius={100}
+            cx={300}
+            cy={40}
+            innerRadius={25}
+            outerRadius={40}
           >
             {data01.map((entry, index) => (
               <Cell
@@ -96,14 +95,13 @@ export default function CustomPieChart() {
                 fill={COLORS[index % COLORS.length]}
               />
             ))}
-            <Label
+            {/* <Label
               content={<CustomLabel labelText="ICPs" value={15} />}
               position="center"
-            />
+            /> */}
           </Pie>
-          {/* <Legend content={<CustomizedLegend />} /> */}
+          <Legend content={<CustomizedLegend />} />
         </PieChart>
       </ResponsiveContainer>
-    </div>
   );
 }
