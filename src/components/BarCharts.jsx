@@ -1,5 +1,5 @@
 
-import { ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from 'recharts';
 
 const data = [
   {
@@ -58,6 +58,8 @@ const BarCharts = ({grid, x, y, width, aspect, color, barSize}) => {
         <BarChart width={10} height={40} data={data}>
             {/* <Bar dataKey="uv" fill="#e3e3e3" barSize={5} radius={8}/> */}
             <Bar dataKey="pv" fill={color ?? '#ff6205'} barSize={barSize ?? 5} radius={8}/>
+            {x && <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />}
+            {y && <YAxis />}
         </BarChart>
     </ResponsiveContainer>
     );

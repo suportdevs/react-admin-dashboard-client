@@ -103,7 +103,7 @@ const Dashboard = () => {
                                 <h2 className="text-xl font-bold">Employee Salary</h2>
                                 <span className="text-sm">Every month</span>
                             </div>
-                            <BarCharts aspect={4/2} barSize={15} color='#3b82f6' />
+                            <BarCharts x={true} aspect={4/2} barSize={15} color='#3b82f6' />
                         </div>
                     </div>
                 </div>
