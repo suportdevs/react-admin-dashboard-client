@@ -52,12 +52,12 @@ const data = [
   },
 ];
 
-const BarCharts = ({grid, x, y, width, aspect}) => {
+const BarCharts = ({grid, x, y, width, aspect, color, barSize}) => {
     return (
         <ResponsiveContainer width={width ?? '100%'} aspect={aspect ?? 4/1}>
         <BarChart width={10} height={40} data={data}>
-            <Bar dataKey="uv" fill="#e3e3e3" barSize={5} radius={8}/>
-            <Bar dataKey="pv" fill="#ff6205" barSize={5} radius={8}/>
+            {/* <Bar dataKey="uv" fill="#e3e3e3" barSize={5} radius={8}/> */}
+            <Bar dataKey="pv" fill={color ?? '#ff6205'} barSize={barSize ?? 5} radius={8}/>
         </BarChart>
     </ResponsiveContainer>
     );
