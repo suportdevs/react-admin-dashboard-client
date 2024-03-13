@@ -25,8 +25,8 @@ const Dashboard = () => {
                     <Link>Dashboard </Link>
                 </Breamcums>
                 <div className="mt-4 mx-4  pb-16">
-                    <div className="flex jusfity-between items-center gap-4">
-                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow">
+                    <div className="flex flex-wrap jusfity-between items-center gap-4 w-full">
+                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow w-6/12 ">
                             <div className="flex gap-6">
                                 <UsersIcon className="w-10 h-10 bg-blue-500 rounded p-2" />
                                 <span>
@@ -38,7 +38,7 @@ const Dashboard = () => {
                                 <CustomLineChart grid={true} />
                             </div>
                         </div>
-                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow">
+                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow w-6/12 ">
                             <div className="flex gap-6">
                                 <ShoppingCartIcon className="w-10 h-10 bg-red-500 rounded p-2" />
                                 <span>
@@ -50,7 +50,7 @@ const Dashboard = () => {
                                 <Charts type='bar' />
                             </div>
                         </div>
-                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow">
+                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow w-6/12 ">
                             <div className="flex gap-6">
                                 <TruckIcon className="w-10 h-10 bg-indigo-500 rounded p-2" />
                                 <span>
@@ -62,7 +62,7 @@ const Dashboard = () => {
                                 <CustomLineChart />
                             </div>
                         </div>
-                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow">
+                        <div className="flex-1 flex flex-col bg-white rounded-lg  p-5 shadow w-6/12 ">
                             <div className="flex gap-6">
                                 <ArrowTrendingUpIcon className="w-10 h-10 bg-green-500 rounded p-2" />
                                 <span>
@@ -75,15 +75,15 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex mt-4 gap-4">
-                        <div className="flex-8 w-8/12 bg-white rounded-lg  p-5 shadow">
+                    <div className="flex flex-col mt-4 gap-4">
+                        <div className="flex-8 w-full w-8/12 bg-white rounded-lg  p-5 shadow">
                             <div className="mb-4">
                                 <h2 className="text-xl font-bold">Revenue Updates</h2>
                                 <span className="text-sm">Overview of Profit</span>
                             </div>
                             <AreaCharts grid={true} x={true} y={true} aspect={4/2} />
                         </div>
-                        <div className="flex-4 flex-col w-4/12 ">
+                        <div className=" w-full md:flex md:flex-wrap md:gap-4">
                             <div className=" mb-4 bg-white rounded-lg  p-5 shadow">
                                 <h2 className="text-xl font-bold mb-3">Yearly Breakup</h2>
                                 <CustomPieChart width='100%' aspect={4/1} />
@@ -98,16 +98,16 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex mt-4 gap-4">
-                        <div className="flex-8 w-4/12 bg-white rounded-lg  p-5 shadow">
+                    <div className="flex flex-col mt-4 gap-4 w-full">
+                        <div className="flex-8 w-full lg:w-4/12 bg-white rounded-lg  p-5 shadow">
                             <div className="mb-4">
                                 <h2 className="text-xl font-bold">Employee Salary</h2>
                                 <span className="text-sm">Every month</span>
                             </div>
                             <BarCharts x={true} aspect={4/3} barSize={15} color='#3b82f6' />
                         </div>
-                        <div className="flex-8 w-4/12 flex flex-col gap-6">
-                            <div className="flex gap-4">
+                        <div className="flex-8 w-full lg:w-4/12 flex flex-col gap-6">
+                            <div className="flex gap-4 w-full">
                                 <div className="w-full bg-white shadow rounded-lg">
                                     <div className="ml-6 mt-6">
                                         <span>Customers</span>
@@ -145,7 +145,7 @@ const Dashboard = () => {
                             </div>
 
                         </div>
-                        <div className="flex-8 w-4/12 rounded-lg  p-5 shadow bg-blue-400 text-white">
+                        <div className="flex-8 w-full lg:w-4/12 rounded-lg  p-5 shadow bg-blue-400 text-white">
                             <div>
                                 <h2 className="text-xl font-bold">Best selling products</h2>
                                 <span className="text-sm">Overview 2023</span>
