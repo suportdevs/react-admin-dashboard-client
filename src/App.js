@@ -12,6 +12,7 @@ function App() {
     <div className='bg-slate-100'>
       <Routes>
         <Route path='/' element={<AppLayout />}>
+          <Route path='' element={<Dashboard />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='/users' element={<User />} />
           <Route path='/metarials/type' element={<MetarialType />} />

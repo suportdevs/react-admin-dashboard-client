@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import Breamcums from "../components/Breamcums";
+import Breamcums from "../components/Breadcrumbs";
 import { ArrowDownRightIcon, ArrowTrendingUpIcon, ArrowUpLeftIcon, ChatBubbleBottomCenterTextIcon, ShoppingCartIcon, TruckIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Charts from "../components/BarCharts";
 import CustomPieChart from "../components/PieCharts";

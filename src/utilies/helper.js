@@ -56,6 +56,8 @@ function applyPrintStyles(contentToPrint) {
         // Apply styles to table headers (th)
         const theads = table.getElementsByTagName('thead');
         for (let i = 0; i < theads.length; i++) {
+            theads[i].style.backgroundColor = '#fde047'; // Example background color
+            
             const ths = theads[i].getElementsByTagName('th');
             for (let j = 0; j < ths.length; j++) {
                 ths[j].style.border = '1px solid #e5e7eb';
@@ -68,6 +70,7 @@ function applyPrintStyles(contentToPrint) {
         const tds = table.getElementsByTagName('td');
         for (let j = 0; j < tds.length; j++) {
             tds[j].style.border = '1px solid #e5e7eb';
+            tds[j].style.padding = '5px';
         }
         
         // Apply styles to table rows (tr)

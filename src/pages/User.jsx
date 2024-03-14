@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import Breamcums from "../components/Breamcums";
+import Breamcums from "../components/Breadcrumbs";
 import Content from "../components/Content";
 import Modal from "../components/Modal";
 

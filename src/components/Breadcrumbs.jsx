@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Breamcums = ({children, title}) => {
+const Breadcrumbs = ({children, title}) => {
     const navigate = useNavigate();
     return (
         <div className="flex items-center justify-between px-4 py-2 bg-white">
@@ -15,4 +15,4 @@ const Breamcums = ({children, title}) => {
     )
 }
 
-export default Breamcums;
+export default Breadcrumbs;

@@ -64,3 +64,16 @@ export const menuItems = [
         to: "/reporting",
     }
 ]
+
+export const categories = [
+    {id: 1, name: 'Categories 1', description: "Demo"},
+    {id: 2, name: 'Categories 2', description: "Demo"},
+    {id: 3, name: 'Categories 3', description: "Demo"},
+    {id: 4, name: 'Categories 4', description: "Demo"},
+    {id: 5, name: 'Categories 5', description: "Demo"},
+    {id: 6, name: 'Categories 6', description: "Demo"},
+    {id: 7, name: 'Categories 7', description: "Demo"},
+    {id: 8, name: 'Categories 8', description: "Demo"},
+    {id: 9, name: 'Categories 9', description: "Demo"},
+    {id: 10, name: 'Categories 10', description: "Demo"},
+];
