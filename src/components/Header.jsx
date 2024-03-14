@@ -15,7 +15,7 @@ const Header = ({ inactive, setInactive, offCanvas, setOffCanvas }) => {
     };
 
     return (
-        <div className="bg-white w-full h-16 flex items-center justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 sm:bg-green:200 md:bg-red-200 lg:bg-blue-200">
+        <div className="bg-white w-full h-16 flex items-center justify-between gap-5 lg:gap-0 p-4 border-b-[1px] border-indigo-600 sm:bg-green:200 md:bg-red-200 lg:bg-blue-200 xl:bg-orange-500">
             <div>
                 <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer hidden lg:block" onClick={() => setInactive(!inactive)}/>
                 <Bars3BottomLeftIcon className="w-6 h-6 cursor-pointer lg:hidden" onClick={() => setOffCanvas(!offCanvas)}/>

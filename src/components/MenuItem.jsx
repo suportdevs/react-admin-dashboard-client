@@ -25,9 +25,8 @@ const MenuItem = ({ name, to, icon, subMenus, inactive, setInactive, offCanvas }
             }}>
                 {
                     subMenus && subMenus.length > 0 ? <div className="flex items-center gap-3" >
-                    {icon}
-                    <div className={`${!inactive ? 'w-0 h-0 opacity-0 visible lg:invisible' : ''}`}>{name}</div>
-                </div> : <Link to={to}>{name}</Link>
+                    {icon} <div className={`${!inactive ? 'w-0 h-0 opacity-0 visible lg:invisible' : ''}`}>{name}</div>
+                </div> : <div className="flex items-center gap-3" >{icon}<Link to={to} className={`${!inactive ? 'w-0 h-0 opacity-0 visible lg:invisible' : ''}`}>{name}</Link></div>
                 }
                 
                 {subMenus && subMenus.length > 0 ? <AngleDownIcon inactive={inactive} openMenu={openMenu} /> : ''}
