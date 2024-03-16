@@ -12,10 +12,10 @@ export const menuItems = [
         to: "/products",
         subMenus: [
             {
-                name: "Category",
-                to: "/metarials/type",
+                name: "Product Type",
+                to: "/metarials/product_type",
             },{
-                name: "Sub Category",
+                name: "Category",
                 to: "/metarials/category",
             },{
                 name: "Products",

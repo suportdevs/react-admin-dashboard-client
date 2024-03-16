@@ -8,13 +8,9 @@ import ContentFilter from "../components/ContentFilter";
 import Table from "../components/Table";
 import { categories } from "../dataset";
 
-const MaterialType = () => {
+const ProductType = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const checkBoxRef = useRef();
-    // const [id, ]
-    const handleCheckBox = () => {
-        console.log(checkBoxRef);
-    }
 
     return (
         <>
@@ -35,8 +31,8 @@ const MaterialType = () => {
                         <tr className="divide-x divide-gray-200">
                             <th className="py-1" >Name</th>
                             <th className="py-1" >Description</th>
-                            <th className="py-1" >Actions</th>
-                            <th className="py-1" ><input type="checkbox" ref={checkBoxRef} onClick={() => handleCheckBox('all')} className="allCheck" /></th>
+                            <th className="py-1 hip" >Actions</th>
+                            <th className="py-1 hip" ><input type="checkbox" className="allCheck" /></th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -44,13 +40,13 @@ const MaterialType = () => {
                             <tr className="divide-x divide-gray-200" key={index}>
                                 <td className="p-1">{item.name}</td>
                                 <td className="p-1">{item.description}</td>
-                                <td className="flex items-center justify-center">
+                                <td className="flex items-center justify-center hip">
                                     <Link className="flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white px-2 rounded-md focus:ring-4 ring-green-500/50">
                                         <span><DocumentPlusIcon className="w-4 h-4" /></span> New
                                     </Link>
                                 </td>
-                                <td className="text-center">
-                                    <input type="checkbox" ref={checkBoxRef} name='date[]' value={item.id} className="items" />
+                                <td className="text-center hip">
+                                    <input type="checkbox" name='date[]' value={item.id} className="items" />
                                 </td>
                             </tr>
                         ))}
@@ -66,4 +62,4 @@ const MaterialType = () => {
     )
 }
 
-export default MaterialType;
+export default ProductType;

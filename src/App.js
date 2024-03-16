@@ -4,7 +4,7 @@ import User from './pages/User';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import MetarialType from './pages/MetarialType';
+import ProductType from './pages/ProductType';
 import AppLayout from './components/AppLayout';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path='' element={<Dashboard />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='/users' element={<User />} />
-          <Route path='/metarials/type' element={<MetarialType />} />
+          <Route path='/metarials/product_type' element={<ProductType />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

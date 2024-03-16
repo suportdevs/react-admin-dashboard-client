@@ -37,7 +37,16 @@ function applyPrintStyles(contentToPrint) {
         phTable.style.width = '100%';
         phTable.style.borderCollapse = 'collapse';
         phTable.style.marginBottom = '10px';
-        // phTable.style.border = '1px solid #e5e7eb';
+        // Select h2 elements within phTable and apply styles
+        const h2Elements = phTable.querySelectorAll('h2');
+        for (let i = 0; i < h2Elements.length; i++) {
+            h2Elements[i].style.margin = '0px';
+        }
+        const underlineElements = phTable.querySelectorAll('.underline');
+        for (let i = 0; i < underlineElements.length; i++) {
+            underlineElements[i].style.textDecoration = 'underline'; // Corrected style property
+            underlineElements[i].style.paddingBottom = '20px'; // Adjust this value to your preference
+        }
     }
     const tables = contentToPrint.querySelectorAll('table.table');
     for (let i = 0; i < tables.length; i++) {
@@ -63,6 +72,7 @@ function applyPrintStyles(contentToPrint) {
                 ths[j].style.border = '1px solid #e5e7eb';
                 ths[j].style.backgroundColor = '#fde047'; // Example background color
                 ths[j].style.padding = '5px'; // Example padding
+                ths[j].style.color = '#000'; // Set the text color to black
             }
         }
         
