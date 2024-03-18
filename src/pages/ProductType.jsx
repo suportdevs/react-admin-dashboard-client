@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRightIcon, DocumentPlusIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "../components/Breadcrumbs"; // Fixed typo here
@@ -10,7 +10,6 @@ import { categories } from "../dataset";
 
 const ProductType = () => {
     const [modalOpen, setModalOpen] = useState(false);
-    const checkBoxRef = useRef();
 
     return (
         <>
